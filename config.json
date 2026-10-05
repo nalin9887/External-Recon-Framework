@@ -1,0 +1,61 @@
+{
+  "output_root": "output",
+  "safety": {
+    "max_cidr_hosts": 256,
+    "nmap_timing": "T3",
+    "max_retries": 2,
+    "host_timeout": "15m",
+    "allow_t4_with_explicit_confirmation": true
+  },
+  "web": {
+    "preferred_fuzzer": "auto",
+    "threads": 20,
+    "min_threads": 5,
+    "delay_ms": 300,
+    "max_delay_ms": 2400,
+    "chunk_size": 2000,
+    "health_probe_count": 3,
+    "health_probe_timeout_seconds": 6,
+    "error_rate_threshold": 0.35,
+    "latency_multiplier": 2.5,
+    "max_backoff_steps": 3,
+    "extensions": ["php", "asp", "aspx", "jsp", "html", "txt", "bak", "zip", "json"],
+    "wordlists": {
+      "small": [
+        "/usr/share/seclists/Discovery/Web-Content/raft-small-words.txt",
+        "/opt/homebrew/share/seclists/Discovery/Web-Content/raft-small-words.txt",
+        "~/.local/share/SecLists/Discovery/Web-Content/raft-small-words.txt"
+      ],
+      "medium": [
+        "/usr/share/seclists/Discovery/Web-Content/raft-medium-words.txt",
+        "/opt/homebrew/share/seclists/Discovery/Web-Content/raft-medium-words.txt",
+        "~/.local/share/SecLists/Discovery/Web-Content/raft-medium-words.txt"
+      ],
+      "large": [
+        "/usr/share/seclists/Discovery/Web-Content/raft-large-words.txt",
+        "/opt/homebrew/share/seclists/Discovery/Web-Content/raft-large-words.txt",
+        "~/.local/share/SecLists/Discovery/Web-Content/raft-large-words.txt"
+      ]
+    }
+  },
+  "eyewitness": {
+    "threads": 5,
+    "timeout_seconds": 20,
+    "delay_seconds": 1
+  },
+  "nuclei": {
+    "rate_limit": 10,
+    "concurrency": 5,
+    "bulk_size": 5,
+    "timeout_seconds": 8,
+    "retries": 0,
+    "scan_non_http_services": false,
+    "tags": ["cve", "exposure", "exposures", "misconfig", "misconfiguration", "tech", "technologies"],
+    "exclude_tags": ["dos", "fuzz", "intrusive", "exploit", "bruteforce", "default-login", "auth-bypass", "rce", "cmdi", "sqli", "ssrf", "lfi", "rfi", "fileupload"],
+    "exclude_types": ["headless", "code", "javascript"]
+  },
+  "report": {
+    "embed_screenshots": true,
+    "max_evidence_chars": 1200
+  }
+}

@@ -1,0 +1,4 @@
+# One authorized target per line. Blank lines and comments are ignored.
+example.com
+192.0.2.10
+# 198.51.100.0/29
